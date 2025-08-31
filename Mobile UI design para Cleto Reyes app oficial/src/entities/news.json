@@ -1,0 +1,65 @@
+
+{
+  "name": "news",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["newsId", "title", "type", "published", "createdAt"],
+        "properties": {
+          "newsId": {
+            "bsonType": "string",
+            "description": "Identificador único de la noticia"
+          },
+          "title": {
+            "bsonType": "string",
+            "description": "Título de la noticia"
+          },
+          "description": {
+            "bsonType": "string",
+            "description": "Descripción o resumen"
+          },
+          "content": {
+            "bsonType": "string",
+            "description": "Contenido completo"
+          },
+          "type": {
+            "bsonType": "string",
+            "enum": ["noticia", "evento", "pelea", "lanzamiento"],
+            "description": "Tipo de contenido"
+          },
+          "imageUrl": {
+            "bsonType": "string",
+            "description": "Imagen principal"
+          },
+          "published": {
+            "bsonType": "bool",
+            "description": "Estado de publicación"
+          },
+          "eventDate": {
+            "bsonType": "string",
+            "description": "Fecha del evento ISO 8601",
+            "title": "datetime"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Creador del contenido"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "description": "Fecha de creación ISO 8601",
+            "title": "datetime"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "description": "Fecha de actualización ISO 8601",
+            "title": "datetime"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

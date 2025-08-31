@@ -1,0 +1,79 @@
+
+{
+  "name": "training_videos",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["videoId", "title", "level", "category", "duration", "published", "createdAt"],
+        "properties": {
+          "videoId": {
+            "bsonType": "string",
+            "description": "Identificador único del video"
+          },
+          "title": {
+            "bsonType": "string",
+            "description": "Título del video"
+          },
+          "description": {
+            "bsonType": "string",
+            "description": "Descripción del contenido"
+          },
+          "level": {
+            "bsonType": "string",
+            "enum": ["principiante", "intermedio", "avanzado", "profesional"],
+            "description": "Nivel de dificultad"
+          },
+          "category": {
+            "bsonType": "string",
+            "enum": ["tecnica", "acondicionamiento", "sparring", "defensa", "ataque"],
+            "description": "Categoría del entrenamiento"
+          },
+          "duration": {
+            "bsonType": "int",
+            "minimum": 1,
+            "description": "Duración en minutos"
+          },
+          "thumbnailUrl": {
+            "bsonType": "string",
+            "description": "Miniatura del video"
+          },
+          "videoUrl": {
+            "bsonType": "string",
+            "description": "URL del video"
+          },
+          "instructor": {
+            "bsonType": "string",
+            "description": "Nombre del instructor"
+          },
+          "published": {
+            "bsonType": "bool",
+            "description": "Estado de publicación"
+          },
+          "views": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Número de visualizaciones"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Creador del contenido"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "description": "Fecha de creación ISO 8601",
+            "title": "datetime"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "description": "Fecha de actualización ISO 8601",
+            "title": "datetime"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

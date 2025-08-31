@@ -1,0 +1,77 @@
+
+{
+  "name": "products",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["productId", "name", "price", "category", "inStock", "createdAt"],
+        "properties": {
+          "productId": {
+            "bsonType": "string",
+            "description": "Identificador único del producto"
+          },
+          "name": {
+            "bsonType": "string",
+            "description": "Nombre del producto"
+          },
+          "description": {
+            "bsonType": "string",
+            "description": "Descripción detallada del producto"
+          },
+          "price": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Precio del producto en USD"
+          },
+          "category": {
+            "bsonType": "string",
+            "enum": ["guantes", "sacos", "vendas", "accesorios", "ropa", "furia-mexa"],
+            "description": "Categoría del producto"
+          },
+          "inStock": {
+            "bsonType": "bool",
+            "description": "Disponibilidad del producto"
+          },
+          "imageUrl": {
+            "bsonType": "string",
+            "description": "URL de la imagen principal"
+          },
+          "gallery": {
+            "bsonType": "array",
+            "description": "Galería de imágenes adicionales"
+          },
+          "weight": {
+            "bsonType": "string",
+            "description": "Peso del guante (para guantes)"
+          },
+          "material": {
+            "bsonType": "string",
+            "description": "Material del producto"
+          },
+          "featured": {
+            "bsonType": "bool",
+            "description": "Producto destacado"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Creador del producto"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "description": "Fecha de creación ISO 8601",
+            "title": "datetime"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "description": "Fecha de actualización ISO 8601",
+            "title": "datetime"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}
